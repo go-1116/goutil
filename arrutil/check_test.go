@@ -19,6 +19,11 @@ func TestSliceHas(t *testing.T) {
 	strs := []string{"2", "4", "5"}
 	assert.True(t, arrutil.SliceHas(strs, "2"))
 	assert.False(t, arrutil.SliceHas(strs, "3"))
+
+	type testBool bool
+	bools := []testBool{true}
+	assert.True(t, arrutil.SliceHas(bools, true))
+	assert.False(t, arrutil.SliceHas(bools, false))
 }
 
 func TestIntsHas(t *testing.T) {

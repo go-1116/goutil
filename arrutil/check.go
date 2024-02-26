@@ -10,12 +10,12 @@ import (
 
 // SliceHas check the slice contains the given value
 func SliceHas[T comdef.ScalarType](slice []T, val T) bool {
-	for _, ele := range slice {
-		if ele == val {
-			return true
-		}
+	mp := make(map[T]struct{})
+	for _, value := range slice {
+		mp[value] = struct{}{}
 	}
-	return false
+	_, isIn := mp[val]
+	return isIn
 }
 
 // IntsHas check the []comdef.Integer contains the given value
